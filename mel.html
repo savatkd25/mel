@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Mi Amor 🌻</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#fff7cc,#ffd54f);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+overflow:hidden;
+}
+
+h1{
+font-size:50px;
+color:#e6a800;
+text-align:center;
+animation:latido 2s infinite;
+}
+
+p{
+font-size:22px;
+text-align:center;
+max-width:600px;
+color:#444;
+}
+
+button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ffcc00;
+color:#333;
+cursor:pointer;
+margin-top:20px;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ffdb4d;
+}
+
+#mensaje{
+display:none;
+font-size:26px;
+color:#c48a00;
+margin-top:20px;
+animation:aparecer 2s;
+}
+
+@keyframes aparecer{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes latido{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+/* Flores cayendo */
+
+.flor{
+position:absolute;
+top:-50px;
+font-size:30px;
+animation:caer linear infinite;
+}
+
+@keyframes caer{
+0%{
+transform:translateY(-50px) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌻 Para Ti Mi Amor 🌻</h1>
+
+<p>
+Hoy te regalo estas flores amarillas porque iluminan mi vida  
+igual que tú iluminas cada uno de mis días. 💛
+</p>
+
+<button onclick="mostrarMensaje()">Abrir Sorpresa</button>
+
+<div id="mensaje">
+🌻 Eres la razón de mi sonrisa todos los días.  
+Te amo mucho. 💛
+</div>
+
+<script>
+
+function mostrarMensaje(){
+document.getElementById("mensaje").style.display="block";
+}
+
+function crearFlor(){
+const flor=document.createElement("div");
+flor.classList.add("flor");
+flor.innerHTML="🌻";
+flor.style.left=Math.random()*100+"vw";
+flor.style.animationDuration=(Math.random()*5+5)+"s";
+document.body.appendChild(flor);
+
+setTimeout(()=>{
+flor.remove();
+},10000);
+}
+
+setInterval(crearFlor,500);
+
+</script>
+
+</body>
+</html>
